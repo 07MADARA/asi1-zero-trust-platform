@@ -65,9 +65,11 @@ ASI:One API (Fetch.ai): Powers the core threat intelligence using agentic models
 1. Backend Setup
 
 Bash
+
 cd backend
 
 python -m venv venv
+
 .\venv\Scripts\activate
 
 
@@ -83,7 +85,9 @@ uvicorn main:app --reload
 2. Frontend Setup
 
 Bash
+
 cd frontend
+
 npm install axios recharts react-tsparticles tsparticles-slim
 
 npm start
