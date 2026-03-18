@@ -3,7 +3,7 @@
 ⚠️ Important Note for Judges (Local Setup)
 To protect sensitive credentials, the ASI:One API key has been securely excluded from this repository. To run this project locally, please follow these exact steps:
 
-Built for API Innovate 2026 | Tracks: Cybersecurity, IoT, Web
+Built | Tracks: Cybersecurity, IoT, Web
 
 An advanced, AI-driven cybersecurity command center designed to protect critical enterprise infrastructure. By bridging Information Technology (IT) and Operational Technology (OT), this platform uses the agentic reasoning of ASI:One to detect, analyze, and remediate cyber-physical attacks on heavy industrial machinery before physical damage occurs.
 
