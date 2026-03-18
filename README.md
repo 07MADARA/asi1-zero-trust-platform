@@ -63,22 +63,33 @@ ASI:One API (Fetch.ai): Powers the core threat intelligence using agentic models
 
 📦 Setup & Installation
 1. Backend Setup
+
 Bash
 cd backend
+
 python -m venv venv
 .\venv\Scripts\activate
 
+
 # Install requirements
+
 pip install fastapi uvicorn websockets pydantic openai python-dotenv motor
 
+
 # Launch the FastAPI server
+
 uvicorn main:app --reload
+
 2. Frontend Setup
+
 Bash
 cd frontend
 npm install axios recharts react-tsparticles tsparticles-slim
+
 npm start
+
 🔮 Future Scope
+
 Automated Patch Deployment: Upgrading the ASI:One agent to not just suggest remediation steps, but to autonomously execute generated bash scripts in a secure sandbox.
 
 Predictive Maintenance: Expanding ASI:One's role to predict natural mechanical wear-and-tear alongside cyber-threats.
