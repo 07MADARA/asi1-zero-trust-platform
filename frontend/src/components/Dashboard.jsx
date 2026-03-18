@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css'; 
 
+// CHANGE THIS to your Render URL: https://asi1-zero-trust-platform.onrender.com
+const BACKEND_URL = "https://asi1-zero-trust-platform.onrender.com";
+
 const Dashboard = () => {
   const [stats, setStats] = useState({ critical: 0, high: 0, medium: 0 });
   const [loading, setLoading] = useState(true);
@@ -49,10 +52,9 @@ const Dashboard = () => {
     });
   };
 
-  // NEW: Trigger the backend execution
   const handleExecute = async (task) => {
     try {
-        const response = await fetch('http://localhost:8000/api/remediate', {
+        const response = await fetch(`${BACKEND_URL}/api/remediate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ threat_id: String(task.id), ip_address: task.ip })
@@ -61,7 +63,6 @@ const Dashboard = () => {
         
         if (result.status === 'success') {
             alert(result.message);
-            // Move task to resolved automatically!
             setTasks(prev => {
                 const newTasks = { ...prev };
                 newTasks.investigating = newTasks.investigating.filter(t => t.id !== task.id);
@@ -71,6 +72,7 @@ const Dashboard = () => {
         }
     } catch (error) {
         console.error("Execution failed:", error);
+        alert("Remediation failed. Check if Backend is awake!");
     }
   };
 
@@ -133,7 +135,6 @@ const Dashboard = () => {
               {tasks.investigating.map(task => (
                 <div key={task.id} className="task" draggable onDragStart={(e) => handleDragStart(e, task, 'investigating')} onDragEnd={handleDragEnd}>
                   {task.text} <br/><small>{task.ip}</small>
-                  {/* NEW Execution Button */}
                   <button onClick={() => handleExecute(task)} style={{ display: 'block', marginTop: '10px', background: '#ff4d4d', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer', width: '100%' }}>
                       Execute ASI:One Fix
                   </button>
