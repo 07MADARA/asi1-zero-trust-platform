@@ -1,15 +1,7 @@
-# Ignore Node modules
-frontend/node_modules/
-frontend/build/
-
-# Ignore Python virtual environments
-backend/venv/
-backend/__pycache__/
-
-# NEVER UPLOAD ENV FILES
-backend/.env
-
 node_modules/
-venv/
-__pycache__/
+frontend/node_modules/
 .env
+backend/.env
+venv/
+backend/venv/
+.history/
